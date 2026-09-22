@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cálculo Visual II — plataforma interativa de Cálculo Diferencial e Integral II com simulações e GeoGebra.">
-  <title>Cálculo Visual II</title>
-
+  <meta name="description" content="Sobre o projeto Cálculo Visual II e a proposta pedagógica do sistema interativo.">
+  <title>Cálculo Visual II | Sobre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="home">
+<body data-page="sobre">
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <div class="brand">
@@ -31,11 +30,11 @@
       </div>
 
       <nav class="nav">
-        <a class="nav-link active" href="index.html"><span>⌂</span> Início</a>
+        <a class="nav-link" href="index.html"><span>⌂</span> Início</a>
         <a class="nav-link" href="trilha.html"><span>◈</span> Trilha</a>
         <a class="nav-link" href="laboratorio.html"><span>◉</span> Laboratório</a>
         <a class="nav-link" href="exercicios.html"><span>✓</span> Exercícios</a>
-        <a class="nav-link" href="sobre.html"><span>i</span> Sobre</a>
+        <a class="nav-link active" href="sobre.html"><span>i</span> Sobre</a>
       </nav>
 
       <div class="sidebar-progress">
@@ -53,37 +52,17 @@
     <main class="main">
       <header class="topbar">
         <button class="menu-button" id="menu-toggle" aria-label="Abrir menu">☰</button>
-        <div class="breadcrumb">Cálculo II <span>/</span> página inicial</div>
+        <div class="breadcrumb">Cálculo II <span>/</span> Sobre o projeto</div>
         <a class="topbar-link" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener">Abrir GeoGebra ↗</a>
       </header>
 
-      <section class="hero section" id="inicio">
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="pulse"></span> laboratório interativo</div>
-          <h1>Cálculo II não precisa ser só fórmula.</h1>
-          <p>Uma plataforma educacional em telas separadas para estudar visualmente, acompanhar a trilha, explorar simulações e praticar com exercícios.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="trilha.html">Começar a trilha →</a>
-            <a class="button secondary" href="laboratorio.html">Explorar laboratório</a>
-          </div>
-          <div class="hero-meta">
-            <span>● 6 módulos</span>
-            <span>● simulações</span>
-            <span>● GeoGebra</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="graph-window">
-            <div class="graph-toolbar">
-              <span>f(x) = x²</span>
-              <span class="graph-dot">●</span>
-            </div>
-            <canvas id="hero-canvas" width="620" height="360" aria-label="Gráfico animado de x ao quadrado"></canvas>
-            <div class="graph-caption">
-              <span>Arraste mentalmente a ideia:</span>
-              <strong>curva → variação → área → acumulação</strong>
-            </div>
+      <section class="section principle-section" id="sobre">
+        <div class="principle-card">
+          <div class="principle-icon">∫</div>
+          <div>
+            <div class="eyebrow">04 · princípio do projeto</div>
+            <h2>Experimentar antes de decorar.</h2>
+            <p>O objetivo do Cálculo Visual II é usar a interação como ponte entre a intição geométrica e a formalização matemática. As simulações não substituem a teoria: elas ajudam a construir uma imagem mental para que a teoria faça sentido.</p>
           </div>
         </div>
       </section>

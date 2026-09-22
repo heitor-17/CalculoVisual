@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Exercícios interativos de Cálculo II com feedback imediato.">
+  <title>Cálculo Visual II | Exercícios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="exercicios">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">∫</div>
+        <div>
+          <strong>Cálculo Visual</strong>
+          <span>II · laboratório</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="index.html"><span>⌂</span> Início</a>
+        <a class="nav-link" href="trilha.html"><span>◈</span> Trilha</a>
+        <a class="nav-link" href="laboratorio.html"><span>◉</span> Laboratório</a>
+        <a class="nav-link active" href="exercicios.html"><span>✓</span> Exercícios</a>
+        <a class="nav-link" href="sobre.html"><span>i</span> Sobre</a>
+      </nav>
+
+      <div class="sidebar-progress">
+        <div class="progress-head">
+          <span>Seu progresso</span>
+          <strong id="progress-percent">0%</strong>
+        </div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <small id="progress-label">Comece pelo primeiro módulo.</small>
+      </div>
+
+      <button class="theme-button" id="theme-toggle" type="button">◐ <span>Alternar tema</span></button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menu-toggle" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb">Cálculo II <span>/</span> Exercícios</div>
+        <a class="topbar-link" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener">Abrir GeoGebra ↗</a>
+      </header>
+
+      <section class="section exercises-section" id="exercicios">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">03 · prática</div>
+            <h2>Teste se você realmente entendeu</h2>
+            <p class="section-subtitle">Questões curtas com feedback imediato, de acordo com o módulo em estudo.</p>
+          </div>
+          <div class="score-pill">Acertos: <strong id="score">0</strong>/3</div>
+        </div>
+
+        <div class="exercise-list" id="exercise-list">
+          <article class="exercise-card" data-answer="2">
+            <div class="exercise-top"><span>01 · integral</span><span>nível 1</span></div>
+            <h3>Calcule \(\int_0^1 2x\,dx\).</h3>
+            <div class="answers">
+              <button data-choice="1">1/2</button>
+              <button data-choice="2">1</button>
+              <button data-choice="3">2</button>
+              <button data-choice="4">4</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="exercise-card" data-answer="3">
+            <div class="exercise-top"><span>02 · derivada</span><span>nível 1</span></div>
+            <h3>Se \(f(x)=x^2\), qual é \(f'(3)\)?</h3>
+            <div class="answers">
+              <button data-choice="1">3</button>
+              <button data-choice="2">9</button>
+              <button data-choice="3">6</button>
+              <button data-choice="4">12</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="exercise-card" data-answer="4">
+            <div class="exercise-top"><span>03 · série</span><span>nível 2</span></div>
+            <h3>Qual expressão representa os primeiros termos de eˣ?</h3>
+            <div class="answers">
+              <button data-choice="1">\(1-x+x^2/2\)</button>
+              <button data-choice="2">\(x+x^2+x^3\)</button>
+              <button data-choice="3">\(1+x^2/2+x^4/24\)</button>
+              <button data-choice="4">\(1+x+x^2/2+x^3/6+\cdots\)</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Cálculo Visual II · protótipo educacional</span>
+        <span>Feito para estudar, testar e visualizar.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
