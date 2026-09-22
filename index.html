@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cálculo Visual II — plataforma interativa de Cálculo Diferencial e Integral II com simulações e GeoGebra.">
+  <title>Cálculo Visual II</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GeoGebra: biblioteca oficial para incorporar applets em páginas web. -->
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+  <!-- MathJax para fórmulas matemáticas. -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">∫</div>
+        <div>
+          <strong>Cálculo Visual</strong>
+          <span>II · laboratório</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link active" href="#inicio"><span>⌂</span> Início</a>
+        <a class="nav-link" href="#trilha"><span>◈</span> Trilha</a>
+        <a class="nav-link" href="#laboratorio"><span>◉</span> Laboratório</a>
+        <a class="nav-link" href="#exercicios"><span>✓</span> Exercícios</a>
+        <a class="nav-link" href="#sobre"><span>i</span> Sobre o projeto</a>
+      </nav>
+
+      <div class="sidebar-progress">
+        <div class="progress-head">
+          <span>Seu progresso</span>
+          <strong id="progress-percent">0%</strong>
+        </div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <small id="progress-label">Comece pelo primeiro módulo.</small>
+      </div>
+
+      <button class="theme-button" id="theme-toggle" type="button">◐ <span>Alternar tema</span></button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-button" id="menu-toggle" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb">Cálculo II <span>/</span> Aprender visualmente</div>
+        <a class="topbar-link" href="https://www.geogebra.org/calculator" target="_blank" rel="noopener">Abrir GeoGebra ↗</a>
+      </header>
+
+      <section class="hero section" id="inicio">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> laboratório interativo</div>
+          <h1>Cálculo II não precisa ser só fórmula.</h1>
+          <p>Veja uma curva, altere um parâmetro, observe o que muda e só então formalize a ideia. Uma trilha de Cálculo Diferencial e Integral II construída para transformar abstrações em experiências.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#trilha">Começar a trilha →</a>
+            <a class="button secondary" href="#laboratorio">Explorar laboratório</a>
+          </div>
+          <div class="hero-meta">
+            <span>● 5 módulos iniciais</span>
+            <span>● simulações interativas</span>
+            <span>● GeoGebra integrado</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="graph-window">
+            <div class="graph-toolbar">
+              <span>f(x) = x²</span>
+              <span class="graph-dot">●</span>
+            </div>
+            <canvas id="hero-canvas" width="620" height="360" aria-label="Gráfico animado de x ao quadrado"></canvas>
+            <div class="graph-caption">
+              <span>Arraste mentalmente a ideia:</span>
+              <strong>curva → variação → área → acumulação</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="trilha">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">01 · trilha de aprendizagem</div>
+            <h2>Do conceito à resolução</h2>
+          </div>
+          <div class="search-wrap">
+            <span>⌕</span>
+            <input id="module-search" type="search" placeholder="Buscar conteúdo..." aria-label="Buscar conteúdo">
+          </div>
+        </div>
+
+        <div class="module-grid" id="module-grid">
+          <article class="module-card" data-title="Integrais definidas soma de riemann area">
+            <div class="module-number">01</div>
+            <div class="module-icon">∫</div>
+            <h3>Integrais definidas</h3>
+            <p>Área, acumulação e soma de Riemann. Veja os retângulos se aproximarem da área exata.</p>
+            <div class="module-footer"><span>4 aulas</span><button class="module-start" data-complete="m1">Explorar →</button></div>
+          </article>
+
+          <article class="module-card" data-title="teorema fundamental calculo derivada integral">
+            <div class="module-number">02</div>
+            <div class="module-icon">↔</div>
+            <h3>Teorema Fundamental</h3>
+            <p>Conecte derivação e integração através da função área acumulada.</p>
+            <div class="module-footer"><span>3 aulas</span><button class="module-start" data-complete="m2">Explorar →</button></div>
+          </article>
+
+          <article class="module-card" data-title="tecnicas integracao substituicao partes">
+            <div class="module-number">03</div>
+            <div class="module-icon">∫·</div>
+            <h3>Técnicas de integração</h3>
+            <p>Substituição e integração por partes com exemplos que mostram de onde as regras vêm.</p>
+            <div class="module-footer"><span>5 aulas</span><button class="module-start" data-complete="m3">Explorar →</button></div>
+          </article>
+
+          <article class="module-card" data-title="aplicacoes area volume trabalho">
+            <div class="module-number">04</div>
+            <div class="module-icon">◫</div>
+            <h3>Aplicações</h3>
+            <p>Áreas entre curvas, volumes de revolução, comprimento e trabalho.</p>
+            <div class="module-footer"><span>4 aulas</span><button class="module-start" data-complete="m4">Explorar →</button></div>
+          </article>
+
+          <article class="module-card" data-title="sequencias series convergencia">
+            <div class="module-number">05</div>
+            <div class="module-icon">∞</div>
+            <h3>Sequências e séries</h3>
+            <p>Convergência, séries de potência e o caminho até Taylor e Maclaurin.</p>
+            <div class="module-footer"><span>6 aulas</span><button class="module-start" data-complete="m5">Explorar →</button></div>
+          </article>
+        </div>
+
+        <div class="empty-search" id="empty-search" hidden>Nenhum módulo encontrado.</div>
+      </section>
+
+      <section class="section lab-section" id="laboratorio">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">02 · laboratório</div>
+            <h2>Veja a matemática acontecendo</h2>
+            <p class="section-subtitle">Use os controles abaixo e depois abra a mesma ideia no GeoGebra.</p>
+          </div>
+        </div>
+
+        <div class="lab-tabs" role="tablist" aria-label="Simulações">
+          <button class="lab-tab active" data-lab="riemann" role="tab">Soma de Riemann</button>
+          <button class="lab-tab" data-lab="derivative" role="tab">Derivada</button>
+          <button class="lab-tab" data-lab="taylor" role="tab">Taylor</button>
+        </div>
+
+        <div class="lab-panel active" id="lab-riemann">
+          <div class="lab-copy">
+            <div class="tag">experimente</div>
+            <h3>Como a soma vira uma integral?</h3>
+            <p>Altere o número de retângulos. Quando \(n\) cresce, a soma das áreas se aproxima da área sob a curva.</p>
+
+            <div class="control">
+              <div class="control-head"><span>Número de retângulos</span><strong id="n-value">12</strong></div>
+              <input id="n-slider" type="range" min="2" max="80" value="12">
+            </div>
+
+            <div class="metric-grid">
+              <div class="metric"><span>Soma aproximada</span><strong id="riemann-value">0</strong></div>
+              <div class="metric"><span>Valor exato</span><strong>8/3</strong></div>
+              <div class="metric"><span>Erro absoluto</span><strong id="riemann-error">0</strong></div>
+            </div>
+
+            <div class="math-callout">\[
+              \int_0^2 x^2\,dx = \lim_{n\to\infty}\sum_{i=1}^{n} f(x_i^*)\Delta x
+            \]</div>
+          </div>
+
+          <div class="simulation-card">
+            <div class="sim-header">
+              <span>Simulação local</span>
+              <span class="live-dot">AO VIVO</span>
+            </div>
+            <canvas id="riemann-canvas" width="820" height="480" aria-label="Simulação de soma de Riemann"></canvas>
+          </div>
+        </div>
+
+        <div class="lab-panel" id="lab-derivative">
+          <div class="lab-copy">
+            <div class="tag">visualize</div>
+            <h3>De secante para tangente</h3>
+            <p>Escolha um ponto \(x_0\) em \(f(x)=x^2\). O gráfico mostra a reta tangente e a inclinação instantânea.</p>
+            <div class="control">
+              <div class="control-head"><span>Ponto \(x_0\)</span><strong id="x0-value">1.00</strong></div>
+              <input id="x0-slider" type="range" min="-2" max="2" step="0.05" value="1">
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><span>f(x₀)</span><strong id="fx0-value">1.00</strong></div>
+              <div class="metric"><span>f′(x₀)</span><strong id="slope-value">2.00</strong></div>
+            </div>
+            <div class="math-callout">\[
+              f'(x_0)=\lim_{h\to0}\frac{f(x_0+h)-f(x_0)}{h}
+            \]</div>
+          </div>
+          <div class="simulation-card">
+            <div class="sim-header"><span>Secante → tangente</span><span class="live-dot">INTERATIVO</span></div>
+            <canvas id="derivative-canvas" width="820" height="480" aria-label="Visualização da derivada"></canvas>
+          </div>
+        </div>
+
+        <div class="lab-panel" id="lab-taylor">
+          <div class="lab-copy">
+            <div class="tag">aproxime</div>
+            <h3>Uma função feita de pedaços</h3>
+            <p>Veja como os polinômios de Taylor se aproximam de \(e^x\) perto de \(x=0\).</p>
+            <div class="control">
+              <div class="control-head"><span>Número de termos</span><strong id="terms-value">4</strong></div>
+              <input id="terms-slider" type="range" min="1" max="10" value="4">
+            </div>
+            <div class="metric"><span>Polinômio atual</span><strong class="formula-small" id="taylor-formula">1 + x + x²/2 + x³/6</strong></div>
+            <div class="math-callout">\[
+              e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!}
+            \]</div>
+          </div>
+          <div class="simulation-card">
+            <div class="sim-header"><span>Aproximação de Taylor</span><span class="live-dot">INTERATIVO</span></div>
+            <canvas id="taylor-canvas" width="820" height="480" aria-label="Visualização de série de Taylor"></canvas>
+          </div>
+        </div>
+
+        <div class="geogebra-block">
+          <div class="geogebra-heading">
+            <div>
+              <div class="eyebrow">geogebra</div>
+              <h3>Agora explore a construção completa</h3>
+              <p>O applet abaixo é carregado pelo serviço oficial do GeoGebra. Use os botões para trocar o conceito visualizado.</p>
+            </div>
+            <div class="ggb-actions">
+              <button class="button small" data-ggb="derivative">Derivada</button>
+              <button class="button small" data-ggb="integral">Integral</button>
+              <button class="button small" data-ggb="taylor">Taylor</button>
+              <a class="button small secondary" href="https://www.geogebra.org/classic" target="_blank" rel="noopener">Abrir completo ↗</a>
+            </div>
+          </div>
+          <div class="ggb-frame" id="ggb-element">
+            <div class="ggb-loading">
+              <div class="spinner"></div>
+              <span>Carregando GeoGebra…</span>
+            </div>
+          </div>
+          <p class="source-note">Integração baseada no método oficial de incorporação do GeoGebra.</p>
+        </div>
+      </section>
+
+      <section class="section exercises-section" id="exercicios">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">03 · prática</div>
+            <h2>Teste se você realmente entendeu</h2>
+            <p class="section-subtitle">Questões curtas com feedback imediato.</p>
+          </div>
+          <div class="score-pill">Acertos: <strong id="score">0</strong>/3</div>
+        </div>
+
+        <div class="exercise-list">
+          <article class="exercise-card" data-answer="2">
+            <div class="exercise-top"><span>01 · integral</span><span>nível 1</span></div>
+            <h3>Calcule \(\int_0^1 2x\,dx\).</h3>
+            <div class="answers">
+              <button data-choice="1">1/2</button>
+              <button data-choice="2">1</button>
+              <button data-choice="3">2</button>
+              <button data-choice="4">4</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="exercise-card" data-answer="3">
+            <div class="exercise-top"><span>02 · derivada</span><span>nível 1</span></div>
+            <h3>Se \(f(x)=x^2\), qual é \(f'(3)\)?</h3>
+            <div class="answers">
+              <button data-choice="1">3</button>
+              <button data-choice="2">9</button>
+              <button data-choice="3">6</button>
+              <button data-choice="4">12</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="exercise-card" data-answer="4">
+            <div class="exercise-top"><span>03 · série</span><span>nível 2</span></div>
+            <h3>Qual expressão representa os primeiros termos de \(e^x\)?</h3>
+            <div class="answers">
+              <button data-choice="1">\(1-x+x^2/2\)</button>
+              <button data-choice="2">\(x+x^2+x^3\)</button>
+              <button data-choice="3">\(1+x^2/2+x^4/24\)</button>
+              <button data-choice="4">\(1+x+x^2/2+x^3/6+\cdots\)</button>
+            </div>
+            <div class="feedback" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section principle-section" id="sobre">
+        <div class="principle-card">
+          <div class="principle-icon">∫</div>
+          <div>
+            <div class="eyebrow">04 · princípio do projeto</div>
+            <h2>Experimentar antes de decorar.</h2>
+            <p>O objetivo do Cálculo Visual II é usar a interação como ponte entre a intuição geométrica e a formalização matemática. As simulações não substituem a teoria: elas ajudam a construir uma imagem mental para que a teoria faça sentido.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Cálculo Visual II · protótipo educacional</span>
+        <span>Feito para estudar, testar e visualizar.</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
