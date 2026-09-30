@@ -1,40 +1,27 @@
-# Cálculo Visual II
+# Cálculo Visual II — Plano Tangente e Curvas de Nível
 
-Protótipo de uma plataforma web de Cálculo Diferencial e Integral II com:
+Projeto web educacional com duas simulações GeoGebra fornecidas pelo autor:
 
-- trilha de conteúdos;
-- simulação local de Soma de Riemann;
-- visualização da derivada;
-- aproximação por Taylor;
-- exercícios com feedback imediato;
-- progresso salvo no `localStorage`;
-- GeoGebra incorporado via `deployggb.js`.
+- `simulacoes/planoTangente.ggb`
+- `simulacoes/curvaNivelParaboloide.ggb`
 
-## Como executar
+## Executar
 
-A forma mais simples é servir a pasta com um servidor local. Em Python:
+Não abra o `index.html` diretamente com `file://`, pois o navegador pode bloquear o carregamento do `.ggb` local.
+
+Com Python instalado:
 
 ```bash
-cd calculo-visual-ii
+cd calculo-visual-ii-final
 python -m http.server 5500
 ```
 
 Depois abra:
 
-```text
-http://localhost:5500
-```
+`http://localhost:5500`
 
-Também é possível abrir `index.html` diretamente, mas alguns navegadores podem aplicar restrições diferentes a recursos externos. O GeoGebra é carregado pela internet.
+## Integração
 
-## Arquivos
+O site usa o GeoGebra Apps Embed API. O parâmetro `filename` aponta para os arquivos `.ggb` dentro da pasta `simulacoes/`.
 
-- `index.html` — estrutura da aplicação.
-- `styles.css` — identidade visual e responsividade.
-- `app.js` — interações, simulações, exercícios, progresso e integração com GeoGebra.
-
-## GeoGebra
-
-O site usa a biblioteca oficial de incorporação do GeoGebra. A documentação oficial descreve o carregamento de `deployggb.js`, a criação de `GGBApplet` e a injeção do applet em um elemento da página.
-
-Para publicar uma versão acadêmica definitiva, recomenda-se criar materiais próprios no GeoGebra e substituir as construções genéricas por atividades/applet IDs específicos.
+Se a plataforma for publicada em um servidor, mantenha os arquivos `.ggb` no mesmo projeto e preserve os caminhos relativos.
